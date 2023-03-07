@@ -9,7 +9,6 @@
 * [Controls](https://github.com/ZuzRad/Run-Of-Adventure#-controls)
 * [Learning goals](https://github.com/ZuzRad/Run-Of-Adventure#-learning-goals)
 * [Project status](https://github.com/ZuzRad/Run-Of-Adventure#-project-status)
-* [License](https://github.com/ZuzRad/Run-Of-Adventure#%EF%B8%8F-license)
 
 
 ## 📝 General Information
