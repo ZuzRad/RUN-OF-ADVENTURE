@@ -63,6 +63,7 @@ public class Enemy : Character, IDamageable
                 timeUntilRangeReadied -= Time.deltaTime;
         }
     }
+    
     private void RunAnimation()
     {
         Vector3 offset = transform.position - lastPosition;
