@@ -88,7 +88,6 @@ public class Enemy : Character, IDamageable
         }  
     }
 
-
     private IEnumerator MeleeAttackDelay()
     {
         Animator.SetTrigger("Attack");
@@ -96,6 +95,7 @@ public class Enemy : Character, IDamageable
         yield return new WaitForSeconds(meleeAttackDelay);
         isMeleAttacking = false;
     }
+    
     private void HandleMeleAttack()
     {
         if (enableMeleeAttack && !isDead && startTimeAttack <= 0)
@@ -118,6 +118,7 @@ public class Enemy : Character, IDamageable
                 timeUntilMeleeReadied -= Time.deltaTime;
         }
     }
+    
     private void Money()
     {
         if(newEnemy)
