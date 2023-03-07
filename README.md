@@ -6,8 +6,8 @@
 * [General Information](https://github.com/ZuzRad/Run-Of-Adventure#-general-information)
 * [Links](https://github.com/ZuzRad/Run-Of-Adventure#-links)
 * [Game Features](https://github.com/ZuzRad/Run-Of-Adventure#-game-features)
-* [Controls](https://github.com/ZuzRad/Run-Of-Adventure#-controls)
 * [Learning goals](https://github.com/ZuzRad/Run-Of-Adventure#-learning-goals)
+* [Controls](https://github.com/ZuzRad/Run-Of-Adventure#-controls)
 * [Project status](https://github.com/ZuzRad/Run-Of-Adventure#-project-status)
 
 
@@ -25,6 +25,14 @@ List of features that the game includes.
 - Obstacles and platforms
 - AI enemies
 
+## 💡 Learning Goals
+- Triggers, Collision, And Colliders
+- Basics of 2D level design
+- Basics of scene managment
+- Animation Transitions and States
+- 2D physics rules in unity
+- Enemy AI
+
 ## 🎮 Controls
 | Actions           | Button        |
 |-------------------|---------------|
@@ -33,14 +41,6 @@ List of features that the game includes.
 | Jump              | Space         |
 | Melee Attack      | LMB           |
 | Range Attack      | RMB           |
-
-## 💡 Learning Goals
-- Triggers, Collision, And Colliders
-- Basics of 2D level design
-- Basics of scene managment
-- Animation Transitions and States
-- 2D physics rules in unity
-- Enemy AI
 
 ## 🌱 Project Status
 Project completed
