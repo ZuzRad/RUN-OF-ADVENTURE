@@ -27,11 +27,13 @@ List of features that the game includes.
 - AI enemies
 
 ## 🎮 Controls
-- Move Left ➡ A/Left Arrow
-- Move Right ➡ D/Right Arrow
-- Jump ➡ Space
-- Melee Attack ➡ LMB
-- Range Attack ➡ RMB
+| Actions           | Button        |
+|-------------------|---------------|
+| Move Left         | A/Left Arrow  |
+| Move Right        | D/Right Arrow |
+| Jump              | Space         |
+| Melee Attack      | LMB           |
+| Range Attack      | RMB           |
 
 ## 💡 Learning Goals
 - Triggers, Collision, And Colliders
