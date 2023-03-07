@@ -4,19 +4,19 @@
 
 ## 📖 Table of Contents
 * [General Information](https://github.com/ZuzRad/Run-Of-Adventure#-general-information)
-* [Links](https://github.com/mslabek/open-crm-backend#-links)
-* [Game Features](https://github.com/mslabek/open-crm-backend#-game-features)
-* [Controls](https://github.com/mslabek/open-crm-backend#-controls)
-* [Learning goals](https://github.com/mslabek/open-crm-backend#-learning-goals)
-* [Project status](https://github.com/mslabek/open-crm-backend#-project-status)
-* [License](https://github.com/mslabek/open-crm-backend#%EF%B8%8F-license)
+* [Links](https://github.com/ZuzRad/Run-Of-Adventure#-links)
+* [Game Features](https://github.com/ZuzRad/Run-Of-Adventure#-game-features)
+* [Controls](https://github.com/ZuzRad/Run-Of-Adventure#-controls)
+* [Learning goals](https://github.com/ZuzRad/Run-Of-Adventure#-learning-goals)
+* [Project status](https://github.com/ZuzRad/Run-Of-Adventure#-project-status)
+* [License](https://github.com/ZuzRad/Run-Of-Adventure#%EF%B8%8F-license)
 
 
 ## 📝 General Information
 Run of adventure is a hack and slash game that involves defeating enemies. In addition to the different types of enemies in the levels, the player also has to watch out for various obstacles that can deal damage. After each level, the player can spend the money he has accumulated in the shop to upgrade the character. The game also has a platform part where the player must show dexterity.
 
 ## 👾 Links
-[Gameplay]([https://gamewebsite.com](https://youtu.be/6FO9-UvqNPg))
+[Gameplay](https://youtu.be/6FO9-UvqNPg)
 
 ## ✨ Game Features
 List of features that the game includes.
@@ -46,5 +46,5 @@ List of features that the game includes.
 ## 🌱 Project Status
 Project completed
 
-## License
-This project is licensed under the [LICENSE NAME] License - see the [LICENSE.md](LICENSE.md) file for details.
+## ⚖️ License
+This project is open source and available under the [Unity Personal License](https://unity.com/products/unity-personal).
