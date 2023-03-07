@@ -1,7 +1,6 @@
 # RUN OF ADVENTURE
 
 ![roa1](https://user-images.githubusercontent.com/107064508/222847098-b46b4535-a03b-47bb-a79f-d05b970994c5.png)
-![roa2](https://user-images.githubusercontent.com/107064508/222847690-588c15ba-42a8-4968-8ee1-c4e9392e9c34.png)
 
 ## 📖 Table of Contents
 * [General Information](https://github.com/ZuzRad/Run-Of-Adventure#-general-information)
