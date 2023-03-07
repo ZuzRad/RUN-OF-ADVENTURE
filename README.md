@@ -10,7 +10,6 @@
 * [Controls](https://github.com/ZuzRad/Run-Of-Adventure#-controls)
 * [Project status](https://github.com/ZuzRad/Run-Of-Adventure#-project-status)
 
-
 ## 📝 General Information
 Run of adventure is a hack and slash game that involves defeating enemies. In addition to the different types of enemies in the levels, the player also has to watch out for various obstacles that can deal damage. After each level, the player can spend the money he has accumulated in the shop to upgrade the character. The game also has a platform part where the player must show dexterity.
 
