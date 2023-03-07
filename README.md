@@ -46,5 +46,3 @@ List of features that the game includes.
 ## 🌱 Project Status
 Project completed
 
-## ⚖️ License
-This project is open source and available under the [Unity Personal License](https://unity.com/products/unity-personal).
