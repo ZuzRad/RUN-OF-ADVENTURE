@@ -11,14 +11,12 @@ public class StaticEnemyStats : MonoBehaviour
         set { enemyMaxHealth = value; }
     }
 
-
     public static float enemyMeleeDamage = 3f;
     public static float EnemyMeleeDamage
     {
         get { return enemyMeleeDamage; }
         set { enemyMeleeDamage = value; }
     }
-
 
     public static float enemyRangeDamage = 1f;
     public static float EnemyRangeDamage

@@ -22,7 +22,7 @@ public class Boss : Character, IDamageable
     private bool isMeleAttacking = false;
     private bool isDead = false;
     private float startTimeAttack = 3f;
-    // private float enemyStartTime = 3f;
+
     void Start()
     {
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -36,24 +36,16 @@ public class Boss : Character, IDamageable
         HandleMeleAttack();
         Rotation();
         RunAnimation();
-
     }
-
 
     private void RunAnimation()
     {
         Vector3 offset = transform.position - lastPosition;
-        if (offset.x > 0)
+        if (offset.x != 0)
         {
             lastPosition = transform.position;
             Animator.SetTrigger("isMoving");
         }
-        else if (offset.x < 0)
-        {
-            lastPosition = transform.position;
-            Animator.SetTrigger("isMoving");
-        }
-
     }
 
     private void Rotation()
@@ -61,20 +53,12 @@ public class Boss : Character, IDamageable
         if (player != null)
         {
             var rotation = player.position - transform.position;
-
             if (rotation.x > 0)
-            {
-
                 transform.rotation = Quaternion.Euler(0, 180f, 0);
-            }
             else
-            {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
         }
-
     }
-
 
     private IEnumerator MeleeAttackDelay()
     {
@@ -83,6 +67,7 @@ public class Boss : Character, IDamageable
         yield return new WaitForSeconds(meleeAttackDelay);
         isMeleAttacking = false;
     }
+
     private void HandleMeleAttack()
     {
         if (enableMeleeAttack && !isDead && startTimeAttack <= 0)
@@ -90,41 +75,27 @@ public class Boss : Character, IDamageable
             Collider2D[] overlappedColliders = Physics2D.OverlapCircleAll(meleeAttackOrigin.position, meleeAttackRadius, playerLayer);
             if (timeUntilMeleeReadied <= 0 && overlappedColliders.Length != 0)
             {
+                timeUntilMeleeReadied = meleeAttackDelay;
                 for (int i = 0; i < overlappedColliders.Length; i++)
                 {
-
                     IDamageable enemyAttributes = overlappedColliders[i].GetComponent<IDamageable>();
-                    if (enemyAttributes != null)
+                    if (enemyAttributes != null && !isMeleAttacking)
                     {
-                        if (!isMeleAttacking)
-                        {
-                            StartCoroutine(MeleeAttackDelay());
-                            enemyAttributes.ApplyDamage(StaticBoss.bossMeleeDamage);
-                        }
-
-
+                        StartCoroutine(MeleeAttackDelay());
+                        enemyAttributes.ApplyDamage(StaticBoss.bossMeleeDamage);
                     }
                 }
-
-                timeUntilMeleeReadied = meleeAttackDelay;
             }
             else
-            {
                 timeUntilMeleeReadied -= Time.deltaTime;
-            }
         }
-
     }
 
     protected IEnumerator OneMoneyWait()
     {
-       // Animator.SetTrigger("Death");
         for (int i = 0; i < 5; i++)
         {
             Instantiate(money, transform.position + new Vector3(-i/2f, -1.5f+i/2f, 0), transform.rotation);
-        }
-        for (int i = 0; i < 5; i++)
-        {
             Instantiate(money, transform.position + new Vector3(i / 2f, -1.5f + i / 2f, 0), transform.rotation);
         }
 
@@ -132,18 +103,13 @@ public class Boss : Character, IDamageable
         isDead = true;
         Die();
     }
+
     public virtual void ApplyDamage(float amount)
     {
-
         SoundManager.PlaySound(SoundManager.Sounds.Hit);
-       // Animator.SetTrigger("Hurt");
         currentHealthEnemy -= amount;
         HPBar.SetHealth(currentHealthEnemy, StaticBoss.bossMaxHealth);
         if (currentHealthEnemy <= 0)
-        {
             StartCoroutine(OneMoneyWait());
-
-
-        }
     }
 }

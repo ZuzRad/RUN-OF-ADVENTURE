@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
- 
     [Header("Movement")]
     public float speed = 5f;
     public float jumpForce = 6f;
     public float groundedLeeway = 0.1f;
     private Rigidbody2D rb = null;
-    
     private Animator animator = null;
     private SoundManager soundManager;
 
@@ -25,26 +23,21 @@ public class Character : MonoBehaviour
         get { return animator; }
         protected set { animator = value; }
     }
+
     public Rigidbody2D Rb
     {
         get { return rb; }
         protected set { rb = value; }
     }
 
-
-
     void Awake()
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         if (GetComponent<Rigidbody2D>())
-        {
             rb=GetComponent<Rigidbody2D>();
-        }
 
         if (GetComponent<Animator>())
-        {
             animator = GetComponent<Animator>();
-        }
     }
 
     protected virtual void Die()

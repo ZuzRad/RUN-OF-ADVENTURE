@@ -11,14 +11,12 @@ public class StaticBoss : MonoBehaviour
         set { bossMaxHealth = value; }
     }
 
-
     public static float bossMeleeDamage = 5f;
     public static float BossMeleeDamage
     {
         get { return bossMeleeDamage; }
         set { bossMeleeDamage = value; }
     }
-
 
     public static float bossRangeDamage = 1f;
     public static float BossRangeDamage

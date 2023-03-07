@@ -10,12 +10,10 @@ public class TutorialMesseges : MonoBehaviour
     public GameObject image = null;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.layer == 7)
         {
             image.SetActive(true);
-            message.text = text;
-            
+            message.text = text; 
         }
     }
 }

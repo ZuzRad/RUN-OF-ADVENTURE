@@ -18,14 +18,12 @@ public class StaticPlayerStats : MonoBehaviour
         set { meleeDamageResistance = value; }
     }
 
-
     public static float maxHealth = 30f;
     public static float MaxHealth
     {
         get { return maxHealth; }
         set { maxHealth = value; }
     }
-
 
     public static float currentHealth = 30f;
     public static float CurrentHealth
@@ -34,15 +32,12 @@ public class StaticPlayerStats : MonoBehaviour
         set { currentHealth = value; }
     }
 
-
     public static float meleeDamage = 8f;
-
     public static float MeleDamage
     {
         get { return meleeDamage; }
         set { meleeDamage = value; }
     }
-
 
     public static float rangeDamage = 4f;
     public static float RangeDamage
@@ -51,10 +46,7 @@ public class StaticPlayerStats : MonoBehaviour
         set { rangeDamage = value; }
     }
 
-
-
     public static float money = 0f;
-
     public static float Money
     {
         get { return money; }

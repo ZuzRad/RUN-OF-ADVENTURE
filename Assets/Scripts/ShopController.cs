@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
-
     [Header("Armor")]
     public float armorPrice = 2;
     public float armorBuff = 2;
@@ -88,15 +87,12 @@ public class ShopController : MonoBehaviour
 
         bootsPriceText.text = bootsPrice + "";
         bootsBuffText.text = "Out of stock";
-
     }
-
     public void Page1()
     {
         HideObjects(page2);
         ShowObjects(page1);
     }
-
     public void Page2()
     {
         HideObjects(page1);
@@ -105,17 +101,13 @@ public class ShopController : MonoBehaviour
     private void ShowObjects(GameObject[] page)
     {
         for (int i = 0; i < page.Length; i++)
-        {
             page[i].SetActive(true);
-        }
     }
 
     private void HideObjects(GameObject[] page)
     {
         for(int i = 0; i < page.Length; i++)
-        {
             page[i].SetActive(false);
-        }
     }
 
     public void HideInfo()
@@ -140,19 +132,12 @@ public class ShopController : MonoBehaviour
                     StaticPlayerStats.meleeDamageResistance += armorBuff;
                     StaticEnemyStats.enemyMeleeDamage -= StaticPlayerStats.meleeDamageResistance;
                     StaticItems.isArmorBought = true;
+                }
+                else
+                    HaveItem();
             }
             else
-            {
-                ShowObjects(info);
-                infoText.text = "You already have this item";
-            }
-        }
-            else
-            {
-                ShowObjects(info);
-                infoText.text = "You don't have enough money";
-            }
-            
+                NoMoney();
         }
         else if(item == 2)
         {
@@ -166,63 +151,32 @@ public class ShopController : MonoBehaviour
                     StaticItems.isMagicBootsBought = true;
                 }
                 else
-                {
-                    ShowObjects(info);
-                    infoText.text = "You already have this item";
-                }
+                    HaveItem();
             }
             else
-            {
-                ShowObjects(info);
-                infoText.text = "You don't have enough money";
-            }
-
+                NoMoney();
         }
         else if(item==3)
         {
             if(StaticPlayerStats.money >= swordPrice)
             {
-                //if(StaticItems.isSwordBought == false)
-                //{
                     StaticPlayerStats.money -= swordPrice;
                     StaticPlayerStats.meleeDamage += swordBuff;
                     StaticItems.isSwordBought = true;
-                //}
-                //else
-                //{
-                //    ShowObjects(info);
-                //    infoText.text = "You already have this item";
-                //}
             }
             else
-            {
-                ShowObjects(info);
-                infoText.text = "You don't have enough money";
-            }
-
+                NoMoney();
         }
         else if(item==4)
         {
             if(StaticPlayerStats.money >= bowPrice)
             {
-                //if(StaticItems.IsBowBought == false)
-                //{
                     StaticPlayerStats.money -= bowPrice;
                     StaticPlayerStats.rangeDamage += bowBuff;
                     StaticItems.IsBowBought = true;
-                //}
-                //else
-                //{
-                //    ShowObjects(info);
-                //    infoText.text = "You already have this item";
-                //}
             }
             else
-            {
-                ShowObjects(info);
-                infoText.text = "You don't have enough money";
-            }
-
+                NoMoney();
         }
         else if (item == 5)
         {
@@ -232,11 +186,19 @@ public class ShopController : MonoBehaviour
                 StaticPlayerStats.maxHealth += crystalBuff;
             }
             else
-            {
-                ShowObjects(info);
-                infoText.text = "You don't have enough money";
-            }
-
+                NoMoney();
         }
+    }
+
+    private void NoMoney()
+    {
+        ShowObjects(info);
+        infoText.text = "You don't have enough money";
+    }
+
+    private void HaveItem()
+    {
+        ShowObjects(info);
+        infoText.text = "You already have this item";
     }
 }

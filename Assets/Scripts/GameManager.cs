@@ -30,28 +30,22 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         if(SceneManager.GetActiveScene().buildIndex != 1)
-        {
             playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             
-        }
         if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 0)
-        {
             Cursor.visible = true;
-        }
         else
-        {
             Cursor.visible = false;
-        }
-            soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         
     }
 
     private void StatsText()
     {
         if (StaticPlayerStats.currentHealth < 0)
-        {
             playerStats.text = "Health: 0/" + StaticPlayerStats.maxHealth + "\n" + "Money: " + StaticPlayerStats.money;
-        }
+
         else
         {
             playerStats.text = "HP: " + StaticPlayerStats.currentHealth + "/" + StaticPlayerStats.maxHealth + "\n" + "Money: " + StaticPlayerStats.money+ "\n" +
@@ -69,14 +63,10 @@ public class GameManager : MonoBehaviour
             startTimetext.text = "Time: " + Mathf.Clamp(Mathf.CeilToInt(startTime), 0, int.MaxValue).ToString();
         }
         else
-        {
             startTimetext.text = "";
-        }
 
         if (startTime <= 0)
-        {
             startTimetext.text = "";
-        }
     }
 
     private void Lost()
@@ -97,7 +87,6 @@ public class GameManager : MonoBehaviour
             soundManager.PlaySound(SoundManager.Sounds.Win);
             startTimetext.text = "Stage Clear!";
             StartCoroutine(WinWait());
-
         }
     }
 
@@ -108,12 +97,9 @@ public class GameManager : MonoBehaviour
         {
             soundManager.PlaySound(SoundManager.Sounds.Win);
             startTimetext.text = "YOU WIN!";
-
             StartCoroutine(WinGameWait());
             Reset();
         }
-        
-
     }
 
 
@@ -140,19 +126,12 @@ public class GameManager : MonoBehaviour
         if (enemies.Length == 0)
         {
             if(SceneManager.GetActiveScene().buildIndex == 7)
-            {
                 SceneManager.LoadScene(0);
-            }
             else
-            {
                 SceneManager.LoadScene(2);
-            }
             
         }
         else
-        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
-
 }

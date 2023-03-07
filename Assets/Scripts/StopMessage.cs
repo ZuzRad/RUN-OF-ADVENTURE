@@ -10,12 +10,10 @@ public class StopMessage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.layer == 7)
         {
             image.SetActive(false);
             message.text = "";
-
         }
     }
 }

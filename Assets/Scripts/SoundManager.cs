@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
         Win, Hit, Jump, Money
 
     }
+    [Header("Audio")]
     public AudioClip hitAudio;
     public AudioClip stage1MusicAudio;
     public AudioClip stage2MusicAudio;
@@ -27,48 +28,30 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0.1f;
         if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
             audioSource.PlayOneShot(menuMusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
             audioSource.PlayOneShot(ShopMusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
             audioSource.PlayOneShot(stagePauseMusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 3)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
             audioSource.PlayOneShot(stage1MusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
             audioSource.PlayOneShot(stage2MusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 5)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 5)
             audioSource.PlayOneShot(stage3MusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 6)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 6)
             audioSource.PlayOneShot(stage4MusicAudio);
-            audioSource.volume = 0.1f;
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 7)
-        {
+
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
             audioSource.PlayOneShot(tutorialMusicAudio);
-            audioSource.volume = 0.1f;
-        }
-
-
     }
 
 

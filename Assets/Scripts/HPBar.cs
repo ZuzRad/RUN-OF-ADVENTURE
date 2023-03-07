@@ -13,12 +13,10 @@ public class HPBar : MonoBehaviour
 
     public void SetHealth(float currentHealth, float maxHealth)
     {
-       
         Slider.gameObject.SetActive(currentHealth < maxHealth);
         Slider.value= currentHealth;
         Slider.maxValue = maxHealth;
         sliderIMG.color= Color.Lerp(Color.red, Color.green, Slider.normalizedValue);
-       // Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, High, Time.time);
     }
 
     void Update()

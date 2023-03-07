@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : Character, IDamageable
 {
-    public float currentHealthEnemy = 15;
     [Header("Combat")]
+    public float currentHealthEnemy = 15;
     public Transform meleeAttackOrigin = null;
     public Transform rangeAttackOrigin = null;
     public GameObject projectile = null;
@@ -28,7 +28,7 @@ public class Enemy : Character, IDamageable
     private bool isMeleAttacking = false;
     private bool isDead = false;
     private float startTimeAttack = 3f;
-   // private float enemyStartTime = 3f;
+
     void Start()
     {
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -36,6 +36,7 @@ public class Enemy : Character, IDamageable
         HPBar.SetHealth(currentHealthEnemy, StaticEnemyStats.enemyMaxHealth);
         lastPosition =transform.position;
     }
+
     void Update()
     {
         startTimeAttack -= Time.deltaTime;
@@ -50,52 +51,29 @@ public class Enemy : Character, IDamageable
     {
         if (enableRangeAttack && !isDead && startTimeAttack<=0)  
         {
-                if (timeUntilRangeReadied <= 0)
-                {
-                    if (newEnemy)
-                    {
+            if (timeUntilRangeReadied <= 0)
+            {
+                if (newEnemy)
                     Animator.SetBool("Ability", true);
-                    }
 
                 Instantiate(projectile, rangeAttackOrigin.position, rangeAttackOrigin.rotation);
-
-                    timeUntilRangeReadied = rangeAttackDelay;
-                }
-                else
-                {
-                    timeUntilRangeReadied -= Time.deltaTime;
-                }
+                timeUntilRangeReadied = rangeAttackDelay;
+            }
+            else
+                timeUntilRangeReadied -= Time.deltaTime;
         }
     }
     private void RunAnimation()
     {
         Vector3 offset = transform.position - lastPosition;
-        if (offset.x > 0)
+        if (offset.x != 0)
         {
             lastPosition = transform.position;
             if (newEnemy)
-            {
                 Animator.SetBool("Run", false);
-            }
             else
-            {
-                Animator.SetInteger("AnimState", 2);
-            }
-            
+                Animator.SetInteger("AnimState", 2); 
         }
-        else if (offset.x < 0)
-        {
-            lastPosition = transform.position;
-            if (newEnemy)
-            {
-                Animator.SetBool("Run", false);
-            }
-            else
-            {
-                Animator.SetInteger("AnimState", 2);
-            }
-        }
-
     }
 
     private void Rotation()
@@ -103,18 +81,11 @@ public class Enemy : Character, IDamageable
         if(player != null)
         {
             var rotation = player.position - transform.position;
-
             if (rotation.x > 0)
-            {
-
                 transform.rotation = Quaternion.Euler(0, 180f, 0);
-            }
             else
-            {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-        }
-        
+        }  
     }
 
 
@@ -132,30 +103,20 @@ public class Enemy : Character, IDamageable
             Collider2D[] overlappedColliders = Physics2D.OverlapCircleAll(meleeAttackOrigin.position, meleeAttackRadius, playerLayer);
             if (timeUntilMeleeReadied <= 0 && overlappedColliders.Length != 0)
             {
+                timeUntilMeleeReadied = meleeAttackDelay;
                 for (int i = 0; i < overlappedColliders.Length; i++)
                 {
-
                     IDamageable enemyAttributes = overlappedColliders[i].GetComponent<IDamageable>();
-                    if (enemyAttributes != null)
+                    if (enemyAttributes != null && !isMeleAttacking)
                     {
-                        if (!isMeleAttacking)
-                        {
-                            StartCoroutine(MeleeAttackDelay());
-                            enemyAttributes.ApplyDamage(StaticEnemyStats.enemyMeleeDamage);
-                        }
-
-
+                        StartCoroutine(MeleeAttackDelay());
+                        enemyAttributes.ApplyDamage(StaticEnemyStats.enemyMeleeDamage);
                     }
                 }
-
-                timeUntilMeleeReadied = meleeAttackDelay;
             }
             else
-            {
                 timeUntilMeleeReadied -= Time.deltaTime;
-            }
         }
-       
     }
     private void Money()
     {
@@ -164,6 +125,7 @@ public class Enemy : Character, IDamageable
         else
             Instantiate(money, transform.position + new Vector3(0, 0.4f, 0), transform.rotation);
     }
+
     protected IEnumerator OneMoneyWait()
     {
         Animator.SetTrigger("Death");
@@ -172,27 +134,19 @@ public class Enemy : Character, IDamageable
         isDead = true;
         Die();
     }
+
     public virtual void ApplyDamage(float amount)
     {
-        
         SoundManager.PlaySound(SoundManager.Sounds.Hit);
         if (newEnemy)
-        {
             Animator.SetTrigger("Hit");
-        }
+
         else
-        {
             Animator.SetTrigger("Hurt");
-        }
         
         currentHealthEnemy -= amount;
         HPBar.SetHealth(currentHealthEnemy, StaticEnemyStats.enemyMaxHealth);
         if (currentHealthEnemy <= 0)
-        {
             StartCoroutine(OneMoneyWait());
-            
-            
-        }
     }
-
 }

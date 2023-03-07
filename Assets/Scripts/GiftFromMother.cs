@@ -10,17 +10,11 @@ public class GiftFromMother : MonoBehaviour
     private bool temp = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.layer == 7 && spawn == false)
         {
-
            Instantiate(gift, transform.position + new Vector3(1, 0.2f, 0), transform.rotation);
             spawn = true;
-
         }
-
-
-
     }
 
     private void Update()

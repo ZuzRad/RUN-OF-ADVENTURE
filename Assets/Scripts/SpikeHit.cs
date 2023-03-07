@@ -7,16 +7,8 @@ public class SpikeHit : MonoBehaviour
     public float damage = 1f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.layer == 7)
-        {
-            IDamageable playerAttributes = collision.GetComponent<IDamageable>();
-            if (playerAttributes != null)
-            {
-                playerAttributes.ApplyDamage(damage);
-            }
-        }
-
-
+        IDamageable playerAttributes = collision.GetComponent<IDamageable>();
+        if (collision.gameObject.layer == 7 && playerAttributes != null)
+            playerAttributes.ApplyDamage(damage);
     }
 }

@@ -11,6 +11,4 @@ public class StaticData : MonoBehaviour
         get { return actualStage; }
         set { actualStage = value; }
     }
-
-
 }
