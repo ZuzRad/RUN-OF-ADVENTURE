@@ -43,4 +43,3 @@ List of features that the game includes.
 
 ## 🌱 Project Status
 Project completed
-
